@@ -1,0 +1,12 @@
+Java is pass by value
+https://www.youtube.com/watch?v=h9uD7ipqu3w
+pass by value -> pass a copy of the variable
+pass by reference -> pass the address of the variable
+
+primitive type  int,char,long,short
+
+primitive type -> pass a copy of the variable, not the variable itself
+
+String is immutable https://www.youtube.com/watch?v=to9DPVsdByE
+https://www.youtube.com/watch?v=UKG1xgh_tbQ
+if using String = "abc" it will use string pool, if using new String("abc") it will create object
