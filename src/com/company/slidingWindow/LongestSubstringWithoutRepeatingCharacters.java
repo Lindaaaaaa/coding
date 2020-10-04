@@ -1,5 +1,6 @@
 package com.company.slidingWindow;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,4 +50,19 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         return answer;
     }
+    // have map to record last occurance index, it helps to skip some characters
+    public static int solve(String s) {
+        int num = 0;
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i=0, j=0; j<s.length(); j++) {
+            if (map.containsKey(s.charAt(j))) {
+                i = Math.max(i,map.get(s.charAt(j)) + 1);
+            }
+            num = Math.max(j-i+1, num);
+            map.put(s.charAt(j), j);
+        }
+        return num;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.graph;
 
 import java.util.*;
 
@@ -41,36 +41,36 @@ public class validClass {
 //        return false;
 //    }
 
-
-    //For the graph to be a valid tree, it must have exactly n - 1 edges.
+    // https://leetcode.com/articles/graph-valid-tree/
+    // For the graph to be a valid tree, it must have exactly n - 1 edges.
     // Any less, and it can't possibly be fully connected.
     // Any more, and it has to contain cycles. Additionally,
     // if the graph is fully connected and contains exactly n - 1 edges, it can't possibly contain a cycle, and therefore must be a tree!
     public static boolean validTree_dfs_stack(int n, int[][] edges) {
-        if(n==1) {
+        if (n == 1) {
             return true;
         }
         // theory,
-        if (edges.length != n-1) {
+        if (edges.length != n - 1) {
             return false;
         }
         //https://leetcode.com/articles/graph-valid-tree/
-        List<List<Integer>> adjacencyList  = new LinkedList<>();
-        for (int i =0; i< n; i++) {
+        List<List<Integer>> adjacencyList = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
             adjacencyList.add(new LinkedList<Integer>());
         }
-        for (int[] edge: edges){
+        for (int[] edge : edges) {
             adjacencyList.get(edge[0]).add(edge[1]);
             adjacencyList.get(edge[1]).add(edge[0]);
         }
 
-        Stack<Integer> stack= new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         Set<Integer> seen = new HashSet<>();
         stack.push(0);
 
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             int node = stack.pop();
-            for(int neignbour: adjacencyList.get(node)) {
+            for (int neignbour : adjacencyList.get(node)) {
                 if (!seen.contains(neignbour)) {
                     seen.add(neignbour);
                     stack.push(neignbour);
@@ -80,6 +80,82 @@ public class validClass {
 
         return seen.size() == n;
     }
+
+    /* use map to store parent of a given node */
+    public static boolean validTree_dfs_stack_map(int n, int[][] edges) {
+        if (n == 1) {
+            return true;
+        }
+        // theory,
+        if (edges.length != n - 1) {
+            return false;
+        }
+        //https://leetcode.com/articles/graph-valid-tree/
+        List<List<Integer>> adjacencyList = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            adjacencyList.add(new LinkedList<Integer>());
+        }
+        for (int[] edge : edges) {
+            adjacencyList.get(edge[0]).add(edge[1]);
+            adjacencyList.get(edge[1]).add(edge[0]);
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        Set<Integer> seen = new HashSet<>();
+        stack.push(0);
+
+        while (!stack.isEmpty()) {
+            int node = stack.pop();
+            for (int neignbour : adjacencyList.get(node)) {
+                if (!seen.contains(neignbour)) {
+                    seen.add(neignbour);
+                    stack.push(neignbour);
+                }
+            }
+        }
+
+        return seen.size() == n;
+    }
+
+
+    public static boolean validTree_dfs_recursion(int n, int[][] edges) {
+        Set<Integer> seen = new HashSet<>();
+
+        if (n == 1) {
+            return true;
+        }
+        if (edges.length != n - 1) {
+            return false;
+        }
+        List<List<Integer>> adjacencyList = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            adjacencyList.add(new LinkedList<Integer>());
+        }
+        for (int[] edge : edges) {
+            adjacencyList.get(edge[0]).add(edge[1]);
+            adjacencyList.get(edge[1]).add(edge[0]);
+        }
+
+        return dfs(0, -1, seen, adjacencyList) && seen.size() == n;
+    }
+
+    private static boolean dfs(int node, int parent, Set<Integer> seen, List<List<Integer>> adjacencyList) {
+        if (seen.contains(node)) {
+            return false;
+        }
+        seen.add(node);
+        for (int neignbour : adjacencyList.get(node)){
+            if (parent!=neignbour) {
+                boolean result = dfs(neignbour, node, seen, adjacencyList);
+                if (!result) return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
 
     public static boolean validTree_bfs(int n, int[][] edges) {
         if(n==1) {
@@ -113,4 +189,5 @@ public class validClass {
         }
         return seen.size() == n;
     }
+
 }
