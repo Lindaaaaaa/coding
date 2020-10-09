@@ -1,4 +1,4 @@
-package com.company.binaryTree.traversal;
+package com.company.Tree.traversal;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.Trie;
+package com.company.Trie;
 
 /**
  * Created by Lindaliu on 2020-09-29.

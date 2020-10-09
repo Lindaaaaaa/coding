@@ -1,4 +1,4 @@
-package com.Tree.recursion;
+package com.company.Tree;
 
 /**
  * Created by Lindaliu on 2020-10-03.
