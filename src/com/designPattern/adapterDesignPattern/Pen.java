@@ -1,4 +1,4 @@
-package com.designPattern.CompositeDesignPattern.adapterDesignPattern;
+package com.designPattern.adapterDesignPattern;
 
 /**
  * Created by Lindaliu on 2020-07-27.

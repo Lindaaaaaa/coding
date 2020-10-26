@@ -1,4 +1,4 @@
-package com.company.bfsAndDfs.bfs.bfs;
+package com.company.bfsAndDfs.bfs;
 
 import java.util.*;
 

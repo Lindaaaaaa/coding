@@ -1,4 +1,4 @@
-package com.company;
+package com.company.sorting;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by Lindaliu on 2020-07-03.
  */
-// sorting method good to review, O(n) kinda special algorithm
+// sorting method reviewed once pass :) , O(n) kinda special algorithm
 public class LongestConsecutiveSequence {
     public static int longestConsecutive_sorting1(int[] nums) {
         //sorting O(nlogn) [-1,-1,1,2,5,6,7,8,12,13]

@@ -1,4 +1,4 @@
-package com.designPattern.CompositeDesignPattern.builderDesignPattern;
+package com.designPattern.builderDesignPattern;
 
 /**
  * Created by Lindaliu on 2020-07-27.
