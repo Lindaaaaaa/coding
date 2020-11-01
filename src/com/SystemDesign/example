@@ -1,1 +1,21 @@
 https://1o24bbs.com/t/design-ticket-booking-system/22078
+
+Amazon System Design | Flipkart System Design | ECommerce Application System Design and Architecture
+https://www.youtube.com/watch?v=EpASu_1dUdE&feature=youtu.be&ab_channel=codeKarle
+
+
+1. Load-balancing
+2. Caching  -> when DB goes down, CDN to cache image/video
+3. Database schema design
+4. Slave-master replications  -> replicate DB, master server read/write, slave server only read
+5. Database sharding
+6. API design
+
+
+Design instgram/ twitter
+read write seperation, in case write take all connections
+user timeline  -> pre- compute
+fan out -> whenever user wants a timeline, just querry the timeline
+push -> when a user sends , update all ppl who followed him their user timeline. issue: trump with a lot of followers
+pull -> consistent pull from the server, see any updates from my followers
+hybrid solution -> user not has many follwers/ a lot of writes, using push. otherwise no

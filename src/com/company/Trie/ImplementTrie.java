@@ -5,6 +5,7 @@ package com.company.Trie;
  */
 /*
 * Notes: https://www.youtube.com/watch?v=giiaIofn31A&ab_channel=MichaelMuinos
+* Insert and Search in Trie O(M) -> M is the length of the word
 * https://leetcode.com/problems/implement-trie-prefix-tree/solution/*/
 class Trie {
     public Node root;
