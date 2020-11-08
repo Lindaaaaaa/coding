@@ -36,31 +36,30 @@ public class coinChange {
         }
         return dp[amount] == Integer.MAX_VALUE? -1: dp[amount];
     }
-    public int coinChange(int[] coins, int amount) {
-        int[] dp = new int[amount + 1];
-        dp[0] = 0;
-        for (int i = 1; i < dp.length; i++) {
-            dp[i] = -1;
-            for (int coin : coins) {
-                int target = i - coin;
-                if (target < 0) {
-                    continue;
-                } else if (target == 0) {
-                    dp[i] = 1;
-                    break;
-                } else {
-                    if (dp[target] == -1) {
-                        continue;
-                    }
-                    if (dp[i] == -1) {
-                        dp[i] = dp[target] + 1;
-                    } else {
-                        dp[i] = Math.min(dp[i], dp[target] + 1);
+    class Solution {
+        public int coinChange(int[] coins, int amount) {
+            int[] dp = new int[amount+1];
+            Arrays.fill(dp, Integer.MAX_VALUE);
+            dp[0] = 0;
+            if (amount == 0) {
+                return 0;
+            }
+            for (int i=1; i< amount +1 ; i++) {
+                for (int coin : coins) {
+                    int prevAmount = i - coin;
+                    //not out of bounds
+                    if (prevAmount >= 0) {
+                        if (dp[prevAmount]!=-1) {
+                            dp[i] = Math.min(dp[i], dp[prevAmount]+1);
+                        }
                     }
                 }
+                if (dp[i] == Integer.MAX_VALUE) {
+                    dp[i] =-1;
+                }
             }
+            return dp[amount];
         }
-        return dp[amount];
     }
 
 }

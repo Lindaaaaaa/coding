@@ -15,3 +15,17 @@ If the multiple transactions are running concurrently, they should not be affect
 
 4. Durability
 Changes that have been committed to the database should remain even in the case of software and hardware failure
+
+
+consistent hashing
+add a server and redistribute
+
+CDN
+replicate content in multiple locations
+
+API DESIGN
+name pram response error
+
+DB
+write好的db casaendra
+hotdata codedata seperation

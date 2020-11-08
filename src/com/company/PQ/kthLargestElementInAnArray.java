@@ -1,4 +1,4 @@
-package com.company.topK;
+package com.company.PQ;
 
 import java.util.PriorityQueue;
 

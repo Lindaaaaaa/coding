@@ -19,3 +19,20 @@ fan out -> whenever user wants a timeline, just querry the timeline
 push -> when a user sends , update all ppl who followed him their user timeline. issue: trump with a lot of followers
 pull -> consistent pull from the server, see any updates from my followers
 hybrid solution -> user not has many follwers/ a lot of writes, using push. otherwise no
+
+
+dropbox
+update chunck by chunck not entire file
+Desktop Client Application monitors the folders that are identified as workspace or sync folders and synchronizes them
+with the remote Cloud Storage.
+The Desktop Client interacts with the Synchronization Service to handle file metadata updates
+(e.g. file name, size, modification date, etc.).
+It also interacts with the backend Cloud Storage for storing the actual files.
+
+
+chat
+1.clients and receiver connect to message server, websockets, write messgae to db
+2. write heavy cansendra , user id partitionto support range key hot code date sepeartion
+3.table store user id and the server id they connect
+4,cache on top of db to retrieve latedst 15 msgs
+5.. group chat, store group chat id, users, find all users and send messages
